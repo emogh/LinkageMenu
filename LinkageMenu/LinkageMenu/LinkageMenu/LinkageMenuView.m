@@ -16,11 +16,13 @@
 @property (nonatomic, strong) UIScrollView *menuView;  /**< 菜单 */
 @property (nonatomic, strong) UIView *bottomView;  /**< 选择的背景视图 */
 @property (nonatomic, strong) UIView *lineView;  /**< 竖线 */
+@property (nonatomic, strong) UIView *contentView;  /**< 右边内容视图 */
 @end
 
 @implementation LinkageMenuView{
     NSArray *menuArray;
-    NSInteger choseTag;//当前选中button的tag
+    NSInteger newChoseTag;//当前选中button的tag
+    NSInteger choseTag;//上次选中button的tag
 }
 
 - (instancetype)initWithFrame:(CGRect)frame WithMenu:(NSArray *)menu{
@@ -78,17 +80,24 @@
 
 - (void)choseMenu:(UIButton *)button{
     NSLog(@"==%ld,%@",(long)button.tag,button.titleLabel.text);
+    newChoseTag = button.tag;
+    
+    if (newChoseTag != choseTag) {
+        UIButton *lastButton = (UIButton *)[self viewWithTag:choseTag];
+        [lastButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        
+        [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+            _bottomView.frame = CGRectMake((MENU_WIDTH - BOTTOMVIEW_WIDTH) / 2.0,button.frame.origin.y +  (BUTTON_HEIGHT - BOTTOMVIEW_HEIGHT) / 2.0, BOTTOMVIEW_WIDTH, BOTTOMVIEW_HEIGHT);
+        } completion:nil];
+        
+        [self performSelector:@selector(delayChangeTextColor) withObject:nil afterDelay:0.07];
+    }
+}
 
-    [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
-        _bottomView.frame = CGRectMake((MENU_WIDTH - BOTTOMVIEW_WIDTH) / 2.0,button.frame.origin.y +  (BUTTON_HEIGHT - BOTTOMVIEW_HEIGHT) / 2.0, BOTTOMVIEW_WIDTH, BOTTOMVIEW_HEIGHT);
-
-        if (button.tag != choseTag) {
-            UIButton *lastButton = (UIButton *)[self viewWithTag:choseTag];
-            [lastButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            choseTag = button.tag;
-        }
-    } completion:nil];
+- (void)delayChangeTextColor{
+        UIButton *button = (UIButton *)[self viewWithTag:newChoseTag];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        choseTag = newChoseTag;
 }
 
 @end
