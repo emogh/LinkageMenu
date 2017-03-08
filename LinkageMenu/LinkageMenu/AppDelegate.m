@@ -22,8 +22,10 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 
+    UITabBarController *tabVC = [[UITabBarController alloc] init];
     ViewController *mainVC = [[ViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:mainVC];
+    tabVC.viewControllers = @[mainVC];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:tabVC];
     self.window.rootViewController = nav;
     
     return YES;
