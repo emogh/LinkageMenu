@@ -120,25 +120,21 @@
             [UIView animateWithDuration:ANIMATION_TIME animations:^{
                 [_menuView setContentOffset:CGPointMake(0,- NAVIGATION_HEIGHT) animated:NO];
             }];
-            
         }else if (button.tag > menuArray.count - DTScrollTag){
-            
             [UIView animateWithDuration:ANIMATION_TIME animations:^{
                 [_menuView setContentOffset:CGPointMake(0, scroHeight) animated:NO];
             }];
         }else if(button.tag == DTScrollTag + 1){
-            
             [UIView animateWithDuration:ANIMATION_TIME animations:^{
                 [_menuView setContentOffset:CGPointMake(0,- NAVIGATION_HEIGHT + blankHeight + 1.0) animated:NO];
             }];
-            
         }else if (button.tag > DTScrollTag + 1 && button.tag < menuArray.count - DTScrollTag){
             [UIView animateWithDuration:ANIMATION_TIME animations:^{
                 [_menuView setContentOffset:CGPointMake(0,- NAVIGATION_HEIGHT + blankHeight + 1.0 + button.frame.size.height * (button.tag - DTScrollTag - 1)) animated:NO];
             }];
         }else if (button.tag == menuArray.count - DTScrollTag){
             [UIView animateWithDuration:ANIMATION_TIME animations:^{
-                [_menuView setContentOffset:CGPointMake(0, scroHeight - blankHeight) animated:NO];
+                [_menuView setContentOffset:CGPointMake(0, scroHeight - blankHeight - 5.0) animated:NO];
             }];
         }
 
