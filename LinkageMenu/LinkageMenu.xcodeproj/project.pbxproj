@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5AD3671D1E7291C80020CF29 /* OneCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD3671A1E7291C80020CF29 /* OneCollectionViewCell.m */; };
+		5AD3671E1E7291C80020CF29 /* OneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD3671C1E7291C80020CF29 /* OneView.m */; };
+		5AD367211E7292D40020CF29 /* TwoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD367201E7292D40020CF29 /* TwoView.m */; };
 		5AF648221E6FA87A00A24341 /* LinkageMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF648211E6FA87A00A24341 /* LinkageMenuView.m */; };
 		5AF9A9851E6EAAB0003929A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9A9841E6EAAB0003929A1 /* main.m */; };
 		5AF9A9881E6EAAB0003929A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9A9871E6EAAB0003929A1 /* AppDelegate.m */; };
@@ -16,6 +19,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5AD367191E7291C80020CF29 /* OneCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneCollectionViewCell.h; sourceTree = "<group>"; };
+		5AD3671A1E7291C80020CF29 /* OneCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneCollectionViewCell.m; sourceTree = "<group>"; };
+		5AD3671B1E7291C80020CF29 /* OneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneView.h; sourceTree = "<group>"; };
+		5AD3671C1E7291C80020CF29 /* OneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneView.m; sourceTree = "<group>"; };
+		5AD3671F1E7292D40020CF29 /* TwoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoView.h; sourceTree = "<group>"; };
+		5AD367201E7292D40020CF29 /* TwoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoView.m; sourceTree = "<group>"; };
 		5AF648201E6FA87A00A24341 /* LinkageMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkageMenuView.h; sourceTree = "<group>"; };
 		5AF648211E6FA87A00A24341 /* LinkageMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkageMenuView.m; sourceTree = "<group>"; };
 		5AF9A9801E6EAAB0003929A1 /* LinkageMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkageMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +49,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5AD367181E7291C80020CF29 /* ExampleView */ = {
+			isa = PBXGroup;
+			children = (
+				5AD367191E7291C80020CF29 /* OneCollectionViewCell.h */,
+				5AD3671A1E7291C80020CF29 /* OneCollectionViewCell.m */,
+				5AD3671B1E7291C80020CF29 /* OneView.h */,
+				5AD3671C1E7291C80020CF29 /* OneView.m */,
+				5AD3671F1E7292D40020CF29 /* TwoView.h */,
+				5AD367201E7292D40020CF29 /* TwoView.m */,
+			);
+			path = ExampleView;
+			sourceTree = "<group>";
+		};
 		5AF9A9771E6EAAB0003929A1 = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +81,7 @@
 		5AF9A9821E6EAAB0003929A1 /* LinkageMenu */ = {
 			isa = PBXGroup;
 			children = (
+				5AD367181E7291C80020CF29 /* ExampleView */,
 				5AF9A99A1E6EAFF2003929A1 /* LinkageMenu */,
 				5AF9A9861E6EAAB0003929A1 /* AppDelegate.h */,
 				5AF9A9871E6EAAB0003929A1 /* AppDelegate.m */,
@@ -161,8 +184,11 @@
 			files = (
 				5AF9A98B1E6EAAB0003929A1 /* ViewController.m in Sources */,
 				5AF648221E6FA87A00A24341 /* LinkageMenuView.m in Sources */,
+				5AD3671D1E7291C80020CF29 /* OneCollectionViewCell.m in Sources */,
 				5AF9A9881E6EAAB0003929A1 /* AppDelegate.m in Sources */,
 				5AF9A9851E6EAAB0003929A1 /* main.m in Sources */,
+				5AD3671E1E7291C80020CF29 /* OneView.m in Sources */,
+				5AD367211E7292D40020CF29 /* TwoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

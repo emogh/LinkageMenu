@@ -10,6 +10,15 @@
 
 @interface LinkageMenuView : UIView
 
-- (instancetype)initWithFrame:(CGRect)frame WithMenu:(NSArray *)menu;
+@property (nonatomic, strong) UIColor *selectViewColor;  /**< select view color */
+
+@property (nonatomic, strong) UIColor *textColor;  /**< text color */
+
+@property (nonatomic, strong) UIColor *selectTextColor;  /**< select text color */
+
+@property (nonatomic, assign) CGFloat textSize;  /**< text size */
+
+
+- (instancetype)initWithFrame:(CGRect)frame WithMenu:(NSArray *)menu andViews:(NSArray *)views;
 
 @end
