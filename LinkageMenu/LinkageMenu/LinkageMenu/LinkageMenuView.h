@@ -10,15 +10,19 @@
 
 @interface LinkageMenuView : UIView
 
-@property (nonatomic, strong) UIColor *selectViewColor;  /**< select view color */
+@property (nonatomic, strong) UIColor *selectViewColor;  /**< select view color (滑块颜色)*/
+@property (nonatomic, strong) UIColor *textColor;  /**< text color (标题颜色)*/
+@property (nonatomic, strong) UIColor *selectTextColor;  /**< select text color (标题选中的颜色)*/
+@property (nonatomic, assign) CGFloat textSize;  /**< text size (标题字体大小)*/
 
-@property (nonatomic, strong) UIColor *textColor;  /**< text color */
+/**
+ Init Method
 
-@property (nonatomic, strong) UIColor *selectTextColor;  /**< select text color */
+ @param frame LinkageMenu frame
+ @param menu titles array
+ @param views right views array
 
-@property (nonatomic, assign) CGFloat textSize;  /**< text size */
-
-
+ */
 - (instancetype)initWithFrame:(CGRect)frame WithMenu:(NSArray *)menu andViews:(NSArray *)views;
 
 @end

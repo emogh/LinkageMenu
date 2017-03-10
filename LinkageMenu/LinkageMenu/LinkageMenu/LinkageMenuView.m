@@ -7,28 +7,25 @@
 //
 
 #import "LinkageMenuView.h"
-#define MENU_WIDTH 100  //left menu width
-#define BOTTOMVIEW_HEIGHT 25  //bottom selected view height
-#define BOTTOMVIEW_WIDTH (MENU_WIDTH - 10)  //bottom selected view width
-#define LINEVIEW_WIDTH 1.0  //separator line view width
-
-#define FULLVIEW_FOR6 667   //iPhone6(s) height
-
-#define NAVIGATION_HEIGHT 64  //navigationbar height
-#define TABBAR_HEIGHT 49  //tabbar height
-
-
-#define ANIMATION_TIME 0.2  //menu scrollview animation time
+#define MENU_WIDTH 100  //左侧菜单栏宽度，默认100
+#define BOTTOMVIEW_HEIGHT 25  //滑块高度
+#define BOTTOMVIEW_WIDTH (MENU_WIDTH - 10)  //滑块宽度
+#define LINEVIEW_WIDTH 1.0  //分割线宽度
+#define FULLVIEW_FOR6 667  //iPhone6(s)高度
+#define NAVIGATION_HEIGHT 64  //navigationbar高度
+#define TABBAR_HEIGHT 49  //tabbar高度
+#define ANIMATION_TIME 0.2  //菜单栏滚动的时间
 
 #define FUll_VIEW_WIDTH     ([[UIScreen mainScreen] bounds].size.width)
 #define FUll_VIEW_HEIGHT    ([[UIScreen mainScreen] bounds].size.height)
 
 @interface LinkageMenuView()
 
-@property (nonatomic, strong) UIScrollView *menuView;  /**< menu view */
-@property (nonatomic, strong) UIView *bottomView;  /**< selected back view */
-@property (nonatomic, strong) UIView *lineView;  /**< separator line */
-@property (nonatomic, strong) UIView *rightview;  /**< right view */
+@property (nonatomic, strong) UIScrollView *menuView;
+@property (nonatomic, strong) UIView *bottomView;
+@property (nonatomic, strong) UIView *lineView;
+@property (nonatomic, strong) UIView *rightview;
+
 @end
 
 @implementation LinkageMenuView{
@@ -55,7 +52,6 @@
             btnHeight = 42.7;
             DTScrollTag = 7;
         }
-        
         _textSize = 14.0;
         _textColor = [UIColor blackColor];
         _selectTextColor = [UIColor whiteColor];
@@ -69,7 +65,6 @@
             UIView *view = [views objectAtIndex:i];
             view.frame = self.rightview.bounds;
         }
-        
         [self.rightview addSubview:(UIView *)[views objectAtIndex:0]];
         
         menuArray = menu;
@@ -77,7 +72,7 @@
         titlesCount = menuArray.count;
         blankHeight = btnHeight - BOTTOMVIEW_HEIGHT;
         half_blankHeight = (btnHeight - BOTTOMVIEW_HEIGHT) / 2.0;
-        choseTag = 1;  //acquiesce selected button is 1
+        choseTag = 1; //默认选中菜单栏第一个
         self.frame = frame;
         [self addSubview:self.menuView];
         [self addSubview:self.lineView];
@@ -85,6 +80,7 @@
     }
     return self;
 }
+
 
 #pragma mark - Setter Method
 - (void)setSelectViewColor:(UIColor *)selectViewColor{
@@ -112,7 +108,7 @@
 }
 
 
-
+#pragma mark - LazyLoad
 - (UIView *)lineView{
     if (!_lineView) {
         _lineView = [[UIView alloc] initWithFrame:CGRectMake(MENU_WIDTH, 0, LINEVIEW_WIDTH, self.frame.size.height)];
@@ -161,8 +157,9 @@
     return _menuView;
 }
 
+#pragma mark - MenuButtonMethod
 - (void)choseMenu:(UIButton *)button{
-    NSLog(@"==%ld,%@",(long)button.tag,button.titleLabel.text);
+    NSLog(@"%ld==%@",(long)button.tag,button.titleLabel.text);
     newChoseTag = button.tag;
     
     if (newChoseTag != choseTag) {
@@ -201,12 +198,10 @@
         } completion:nil];
         [self performSelector:@selector(delayChangeTextColor) withObject:nil afterDelay:0.07];
         
-
-        for(UIView *view in [_rightview subviews])
-        {
+        for (UIView *view in [_rightview subviews]) {
             [view removeFromSuperview];
         }
-        
+
         NSInteger viewtag;
         if (button.tag >= viewArray.count) {
             viewtag = viewArray.count - 1;
@@ -215,10 +210,10 @@
         }
         UIView *rigView = [viewArray objectAtIndex:viewtag];
         [_rightview addSubview:rigView];
-        
     }
 }
 
+#pragma mark - DelayMethod
 - (void)delayChangeTextColor{
         UIButton *button = (UIButton *)[self viewWithTag:newChoseTag];
         [button setTitleColor:_selectTextColor forState:UIControlStateNormal];
