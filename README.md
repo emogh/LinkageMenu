@@ -1,19 +1,19 @@
 # Linkage Menu View——仿考拉海购分类菜单栏选择
 ##Preview
 
-###iPhone5 Simulator      
+**iPhone5 Simulator**      
 ![image](https://github.com/EmotionV/LinkageMenu/blob/master/gif/i5.gif)      
       
-###iPhone6 Simulator   
+**iPhone6 Simulator**   
 ![image](https://github.com/EmotionV/LinkageMenu/blob/master/gif/i6.gif)     
    
-###iPhone6p Simulator   
+**iPhone6p Simulator**   
 ![image](https://github.com/EmotionV/LinkageMenu/blob/master/gif/i6p.gif)    
        
        
 ##Usage
 
-`#import "LinkageMenuView.h"`
+`#import "LinkageMenuView.h"`    
 Then, create LinkageMenuView
 ```
 NSArray *titles = @[@"11",@"22",@"33",@"44"];
