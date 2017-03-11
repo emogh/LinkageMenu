@@ -11,11 +11,11 @@
 #define BOTTOMVIEW_HEIGHT 25  //滑块高度
 #define BOTTOMVIEW_WIDTH (MENU_WIDTH - 10)  //滑块宽度
 #define LINEVIEW_WIDTH 1.0  //分割线宽度
+#define ANIMATION_TIME 0.2  //菜单栏滚动的时间
+
 #define FULLVIEW_FOR6 667  //iPhone6(s)高度
 #define NAVIGATION_HEIGHT 64  //navigationbar高度
 #define TABBAR_HEIGHT 49  //tabbar高度
-#define ANIMATION_TIME 0.2  //菜单栏滚动的时间
-
 #define FUll_VIEW_WIDTH     ([[UIScreen mainScreen] bounds].size.width)
 #define FUll_VIEW_HEIGHT    ([[UIScreen mainScreen] bounds].size.height)
 
@@ -40,6 +40,7 @@
     CGFloat half_blankHeight;
 }
 
+#pragma mark - Init Method
 - (instancetype)initWithFrame:(CGRect)frame WithMenu:(NSArray *)menu andViews:(NSArray *)views{
     if (self = [super init]) {
         if (FUll_VIEW_HEIGHT < FULLVIEW_FOR6) {
@@ -52,15 +53,15 @@
             btnHeight = 42.7;
             DTScrollTag = 7;
         }
+        //Default Menu Style
         _textSize = 14.0;
         _textColor = [UIColor blackColor];
         _selectTextColor = [UIColor whiteColor];
         _selectViewColor = [UIColor blackColor];
         
         if (views.count < menu.count) {
-            NSLog(@"add more views");
+            NSLog(@"Please Add More Views");
         }
-
         for (int i = 0; i < views.count; i++) {
             UIView *view = [views objectAtIndex:i];
             view.frame = self.rightview.bounds;
@@ -80,7 +81,6 @@
     }
     return self;
 }
-
 
 #pragma mark - Setter Method
 - (void)setSelectViewColor:(UIColor *)selectViewColor{
@@ -106,7 +106,6 @@
         button.titleLabel.font = [UIFont systemFontOfSize:textSize];
     }
 }
-
 
 #pragma mark - LazyLoad
 - (UIView *)lineView{
@@ -157,7 +156,7 @@
     return _menuView;
 }
 
-#pragma mark - MenuButtonMethod
+#pragma mark - MenuButton Method
 - (void)choseMenu:(UIButton *)button{
     NSLog(@"%ld==%@",(long)button.tag,button.titleLabel.text);
     newChoseTag = button.tag;
@@ -213,7 +212,7 @@
     }
 }
 
-#pragma mark - DelayMethod
+#pragma mark - Delay Method
 - (void)delayChangeTextColor{
         UIButton *button = (UIButton *)[self viewWithTag:newChoseTag];
         [button setTitleColor:_selectTextColor forState:UIControlStateNormal];

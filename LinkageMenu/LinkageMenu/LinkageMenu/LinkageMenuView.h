@@ -18,9 +18,9 @@
 /**
  Init Method
 
- @param frame LinkageMenu frame
- @param menu titles array
- @param views right views array
+ @param frame   LinkageMenu frame
+ @param menu    titles array
+ @param views   right views array
 
  */
 - (instancetype)initWithFrame:(CGRect)frame WithMenu:(NSArray *)menu andViews:(NSArray *)views;

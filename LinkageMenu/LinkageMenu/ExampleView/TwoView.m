@@ -14,7 +14,6 @@
     if (self = [super initWithFrame:frame style:style]) {
         self.delegate = self;
         self.dataSource = self;
-    
     }
     return self;
 }
@@ -29,7 +28,6 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     return 44;
 }
 
@@ -42,6 +40,5 @@
     cell.textLabel.text = [NSString stringWithFormat:@"cell-%ld", (long)indexPath.row];
     return cell;
 }
-
 
 @end
