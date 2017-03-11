@@ -53,11 +53,10 @@
     //views array
     NSArray *views = @[_oneView,_twoView,_threeView,_fourView,_fiveView];
     
-    //if views count less than menu count, leftover views will use last view in the views
+    //if views count less than menu count, leftover views will load the last view of the views
     //如果view数量少于标题数量，剩下的view会默认加载view数组的最后一个view
     LinkageMenuView *lkMenu = [[LinkageMenuView alloc] initWithFrame:CGRectMake(0, 0,FUll_VIEW_WIDTH , FUll_VIEW_HEIGHT - TABBAR_HEIGHT) WithMenu:@[@"为您推荐",@"美容美妆",@"奶粉纸尿裤",@"母婴专区",@"箱包配饰",@"家居个护",@"营养保健",@"服饰鞋靴",@"海外直邮",@"数码家电",@"环球美食",@"运动户外",@"生鲜",@"国家馆",@"品牌馆"] andViews:views];
 
-//change menu style 修改菜单栏样式
 //    lkMenu.textSize = 11;
 //    lkMenu.textColor = [UIColor blueColor];
 //    lkMenu.selectTextColor = [UIColor redColor];

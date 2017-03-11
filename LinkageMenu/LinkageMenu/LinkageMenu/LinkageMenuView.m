@@ -31,11 +31,11 @@
 @implementation LinkageMenuView{
     NSArray *menuArray;
     NSArray *viewArray;
-    NSInteger titlesCount; //menu count
-    NSInteger newChoseTag;  //tag of this time selected
-    NSInteger choseTag;  //tag of last time selected
-    CGFloat btnHeight;  //change button height to fit different screen
-    NSInteger DTScrollTag; //dont scroll until tag+1
+    NSInteger titlesCount; //菜单总数
+    NSInteger newChoseTag;  //选择的button tag
+    NSInteger choseTag;  //上次选择的button tag
+    CGFloat btnHeight;  //button高度，适配不同屏幕
+    NSInteger DTScrollTag; //滚动tag
     CGFloat blankHeight;
     CGFloat half_blankHeight;
 }
