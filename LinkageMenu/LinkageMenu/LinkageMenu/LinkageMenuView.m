@@ -4,7 +4,7 @@
 //
 //  Created by 风间 on 2017/3/8.
 //  Copyright © 2017年 EmotionV. All rights reserved.
-//
+//  github: https://github.com/EmotionV/LinkageMenu
 
 #import "LinkageMenuView.h"
 #define MENU_WIDTH 100  //左侧菜单栏宽度，默认100
